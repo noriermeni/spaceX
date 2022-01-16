@@ -1,3 +1,7 @@
 type LaunchFind {
     rocket_id:String
 }
+
+type RocketId {
+    id:String
+}

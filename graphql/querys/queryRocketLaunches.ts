@@ -2,43 +2,38 @@
 import {gql} from "@apollo/client";
 
 export const QUERY_ROCKET_LAUNCHES = gql`
-    # import './types.graphql'
+    # import '../types/types.graphql'
     query LaunchesByRocket($find: LaunchFind, $offset: Int, $limit: Int) {
-        launchesPast(find: $find, offset: $offset, limit: $limit) {
+        launches(find: $find, offset: $offset, limit: $limit) {
             id
             details
+            launch_year
+            launch_site {
+                site_id
+                site_name
+                site_name_long
+            }
+            launch_success
+            links {
+                mission_patch
+                mission_patch_small
+                article_link
+                flickr_images
+                video_link
+            }
+            mission_id
             mission_name
-           
+            rocket {
+                rocket_name
+                rocket_type
+                rocket {
+                    id
+                    name
+                    type
+                    company
+                }
+            }
+            launch_date_local
         }
     }
 `;
-
-/*
- launch_date_local
-            launch_site {
-                site_name_long
-            }
-            ships {
-                name
-                home_port
-                image
-                class
-                imo
-                type
-                    url
-            }
-            launch_success
-            launch_year
-            links {
-                mission_patch
-                video_link
-                wikipedia
-                presskit
-            }
-            is_tentative
-            mission_id
-            upcoming
-            telemetry {
-                flight_club
-            }
-* */

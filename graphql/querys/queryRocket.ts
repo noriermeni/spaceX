@@ -1,8 +1,8 @@
 import {gql} from "@apollo/client";
 
-export const QUERY_LAUNCHES = gql`
-    query Rocket($id: String) {
-        rocket(id: $id) {
+export const QUERY_ROCKET = gql`
+    query Query($rocketId: ID!) {
+        rocket(id: $rocketId) {
             active
             boosters
             company

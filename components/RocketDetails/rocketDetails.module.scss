@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.wall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  position: relative;
+  &::before {
+    content: "";
+    background-image: url("../../assets/images/spacex-rocket.png");
+    background-size: 90px auto;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-position-x: center;
+    inset: 0;
+    opacity: 0.75;
+    z-index: -1;
+  }
+}

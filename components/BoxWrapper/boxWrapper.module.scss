@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00000029;
+  color: #FFFFFF;
+  position: relative;
+  min-height: calc(100vh - 94px);
+  &::before {
+    content: "";
+    background-image: url("../../assets/images/nebula.png");
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+  }
+}

@@ -1,16 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from './home/Home.module.scss';
 
 import React, {useEffect, useState} from "react";
 import {ApolloQueryResult, useQuery} from "@apollo/client";
 
-import { QUERY_MISSIONS } from "../querys/queryMissions";
+import { QUERY_MISSIONS } from "../graphql/querys/queryMissions";
 
-import Container from '@mui/material/Container';
-import BoxLayout from "../components/BoxLayout/boxLayout.component";
+import BoxLayout from "../components/BoxesList/boxesList.component";
 import PageTitle from "../components/PageTitle/pageTitle.component";
 import {MissionType} from "../types/MissionsTypes/mission";
+import PageWrapper from "../components/PageWrapper/pageWrapper.component";
 
 
 const Home: NextPage = () => {
@@ -21,7 +20,8 @@ const Home: NextPage = () => {
     const { data, loading, fetchMore } = useQuery(QUERY_MISSIONS, {
         variables: {
             offset: 0,
-            limit: 15
+            limit: 15,
+            find: { rocket_id: "falcon9" }
         }
     });
 
@@ -48,14 +48,14 @@ const Home: NextPage = () => {
                 <meta name="description" content="Starlink mission" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Container maxWidth="lg" className={styles.container}>
+            <PageWrapper>
                 <PageTitle title={'SpaceX Missions'} />
                 <BoxLayout
                     missions={missions}
                     loading={isLoading}
                     fetchMore={fetchMoreMissions}
                 />
-            </Container>
+            </PageWrapper>
         </div>
     );
 }
