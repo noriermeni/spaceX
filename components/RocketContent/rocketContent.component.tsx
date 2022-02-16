@@ -51,7 +51,7 @@ export default function RocketContent({rocket}: Props) {
             </div>
 
             <Grid paddingTop={3} container spacing={{ xs: 2, md: 3 }} >
-                <Grid className={styles.stages} item xs={12} sm={6} md={6}>
+                <Grid className={styles.stages} item xs={12} sm={6} md={6} direction="column">
                     <h2>FIRST STAGE</h2>
                     <div>
                         <span>Burn time sec</span>
@@ -70,7 +70,7 @@ export default function RocketContent({rocket}: Props) {
                         <span><b>{rocket?.first_stage?.thrust_sea_level?.kN}kN</b> / {rocket?.first_stage?.thrust_sea_level?.lbf}lbf</span>
                     </div>
                 </Grid>
-                <Grid className={styles.stages} item xs={12} sm={6} md={6}>
+                <Grid className={styles.stages} item xs={12} sm={6} md={6} direction="column">
                     <h2>SECOND STAGE</h2>
                     <div>
                         <span>Burn time sec</span>
