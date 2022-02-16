@@ -33,7 +33,7 @@
 
 .stages {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   margin-bottom: 30px;
   h2 {
     margin-block: 15px;
